@@ -1,4 +1,36 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
 #map {
   width: 100%;
-  height: 600px;
+  height: 450px;
+}
+
+.weather{
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#icon {
+  height: 100px;
+  width: auto;
+}
+
+#weatherLeft {
+  background-color: #8ea8c3;
+}
+
+#weatherRight {
+  background-color: #406e8e;
+}
+
+#locationHeader {
+  text-align: center;
+  font-weight: 300;
+  font-size: 20px;
+  padding: 1px;
+  background-color: #23395b;
+  color: #ffffff;
 }

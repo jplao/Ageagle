@@ -85,10 +85,19 @@
 	  var high = json_response['main']['temp_max'];
 	  var low = json_response['main']['temp_min'];
 	  var humidity = json_response['main']['humidity'];
+	  var pressure = json_response['main']['pressure'];
 
-	  var data = '<h4>Current weather for: </h4>\n              <h1>' + name + '</h1>\n              <h1>' + temp + ' &#8457</h1>\n              <h3>' + description + '</h3>\n              <h4>High: ' + high + ' &#8457</h4>\n              <h4>Low: ' + low + ' &#8457</h4>\n              <h4>Humidity: ' + humidity + '%</h4>';
+	  var icon = json_response['weather'][0]['icon'];
+	  var cloudiness = json_response['clouds']['all'];
+	  var windSpeed = json_response['wind']['speed'];
 
-	  document.getElementById('weather').innerHTML = data;
+	  var leftData = '<h2>' + description + '</h2>\n                  <img id=\'icon\' src="http://openweathermap.org/img/w/' + icon + '.png" alt="' + description + '">';
+
+	  var rightData = '<h3>High / Low: ' + high + '&#8457 / ' + low + '&#8457</h3>\n                <h3>Humidity: ' + humidity + '%</h3>\n                <h3>Precip. Pressure: ' + pressure + ' hPa</h3>\n                <h3>Wind Speed: ' + windSpeed + ' miles/hour</h3>';
+
+	  document.getElementById('locationHeader').innerHTML = '<h1>' + name + ': ' + temp + '&#8457</h1>';
+	  document.getElementById('weatherLeft').innerHTML = leftData;
+	  document.getElementById('weatherRight').innerHTML = rightData;
 	}
 
 	// Link searched location to displayed weather data
