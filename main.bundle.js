@@ -67,10 +67,9 @@
 	map.addControl(new mapboxgl.NavigationControl());
 
 	// Call to fetch weather info
-	function getWeather() {
+	function getWeather(q) {
 	  var api_key = '6996386e46f031703c26cea51cac9e6e';
-	  var q = 'Boulder,Colorado';
-	  var url = "http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=" + api_key + '&q=' + q;
+	  var url = 'http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=' + api_key + '&q=' + q;
 	  fetch(url).then(function (response) {
 	    return response.json();
 	  }).then(function (json_response) {
@@ -92,7 +91,12 @@
 	  document.getElementById('weather').innerHTML = data;
 	}
 
-	$(document).on("load", getWeather());
+	// Link searched location to displayed weather data
+	geocoder.on('result', function (ev) {
+	  getWeather(ev.result.place_name);
+	});
+
+	$(document).on("load", getWeather('Boulder,Colorado'));
 
 /***/ }),
 /* 1 */
