@@ -26,7 +26,10 @@ In your browser visit:
 When visitors first visit the page they will see the current temperature for Boulder, Colorado and a map.
 ![Home Page](screenshots/homeScreen.png)
 
-Users can enter a location into the search box and will be given location suggestions.
+Users can use the zoom controls to zoom in or out on the map. They can also click on a location to change the displayed weather data.
+![Zoomed Page](screenshots/zoomedClick.png)
+
+Users can also enter a location into the search box and will be given location suggestions.
 ![Search Box](screenshots/searchBox.png)
 
 Entering a location (or choosing a suggested location) will update the weather data to display weather for the searched location and will recenter the map around that searched location.
