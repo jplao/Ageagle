@@ -46,7 +46,7 @@
 
 	'use strict';
 
-	// This file is in the entry point in your webpack config.
+	// Creates map
 	var mapboxgl = __webpack_require__(1);
 
 	mapboxgl.accessToken = 'pk.eyJ1IjoianBsYW8iLCJhIjoiY2p1NHE2emUzMGdicTQ0bzJwdW91aGZ1MCJ9.xOcYJbcXocOi1wogWwWv6w';
@@ -57,12 +57,42 @@
 	  zoom: 1.5
 	});
 
+	// Adds search bar to map
 	var geocoder = new MapboxGeocoder({
 	  accessToken: mapboxgl.accessToken
 	});
-
-	map.addControl(new mapboxgl.NavigationControl());
 	map.addControl(geocoder);
+
+	// Adds zoom controls to map
+	map.addControl(new mapboxgl.NavigationControl());
+
+	// Call to fetch weather info
+	function getWeather() {
+	  var api_key = '6996386e46f031703c26cea51cac9e6e';
+	  var q = 'Boulder,Colorado';
+	  var url = "http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=" + api_key + '&q=' + q;
+	  fetch(url).then(function (response) {
+	    return response.json();
+	  }).then(function (json_response) {
+	    return displayWeather(json_response);
+	  });
+	}
+
+	// Display fetched weather data
+	function displayWeather(json_response) {
+	  var name = json_response['name'];
+	  var description = json_response['weather'][0]['description'].toUpperCase();
+	  var temp = json_response['main']['temp'];
+	  var high = json_response['main']['temp_max'];
+	  var low = json_response['main']['temp_min'];
+	  var humidity = json_response['main']['humidity'];
+
+	  var data = '<h4>Current weather for: </h4>\n              <h1>' + name + '</h1>\n              <h1>' + temp + ' &#8457</h1>\n              <h3>' + description + '</h3>\n              <h4>High: ' + high + ' &#8457</h4>\n              <h4>Low: ' + low + ' &#8457</h4>\n              <h4>Humidity: ' + humidity + '%</h4>';
+
+	  document.getElementById('weather').innerHTML = data;
+	}
+
+	$(document).on("load", getWeather());
 
 /***/ }),
 /* 1 */
