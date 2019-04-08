@@ -1,73 +1,39 @@
-# Self-Directed Front-End Start Kit
+# Ageagle Challenge
+
+## Introduction
+This is a weather app that allows users to search a location on the map to find the current weather conditions.
 
 ## Initial Setup
 
-1. Clone this starter kit repository and rename the repository to anything you'd like in one command:
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-  ```shell
-  git clone git@github.com:turingschool-projects/self-directed-fe-starter.git <name of your choice>
-  ```
-2. Change into the new director directory.
+From GitHub clone down repository using the following commands in terminal:
+* `git@github.com:jplao/Ageagle.git`
+* `cd Ageagle`
 
-3. Remove the default remote (origin):
+## How to Use
 
-  ```shell
-  git remote rm origin
-  ```
+### Running the Server Locally
 
-4. Create a new repository on GitHub.
+To run the server locally run:
+* `npm start`
 
-5. Add your new repository remote - **your remote URL and user name will be different in the command below**
-
-  ```shell
-  git remote add origin git@github.com:<YOUR GITHUB NAME>/<PROJECT NAME>.git
-  ```
-
-6. Install the dependencies of the starter kit:
-
-  ```shell
-  npm install
-  ```
-
-7. Add, commit, and push up to your repository:
-
-  ```shell
-  git add .
-  git commit -m "Initial commit using starter kit"
-  git push origin master
-  ```
-
-## Running the Server Locally
-
-To see your code in action locally, you need to fire up a development server. Use the command:
-
-```shell
-npm start
-```
-
-Once the server is running, visit in your browser:
-
+In your browser visit:
 * `http://localhost:8080/` to run your application.
 
+### Home Page
 
-## GitHub Pages Setup
+When visitors first visit the page they will see the current temperature for Boulder, Colorado and a map.
+![Home Page](screenshots/homeScreen.png)
 
-This site will be served from GitHub Pages in production.
+Users can enter a location into the search box and will be given location suggestions.
+![Search Box](screenshots/searchBox.png)
 
-In order to see your application running on production:
+Entering a location (or choosing a suggested location) will update the weather data to display weather for the searched location and will recenter the map around that searched location.
+![Search Box](screenshots/searchedLocation.png)
 
-1. From the command line, run `npm run build`.
-
-2. Commit and push your application to GitHub.
-
-3. Visit your repository on Github
-
-4. Go to Settings
-
-5. Under the Github Pages section of Options, select 'master' as your source and click `Save`
-
-Be sure to `npm run build` and commit before each push to master. A few seconds after you push up, you should be able to see your application at <https://your-github-username.github.io/project-name>.
-
+## Core Contributors
+* Jennifer Lao - Github: [jplao](https://www.github.com/jplao)
 
 ## Built With
 
@@ -77,3 +43,6 @@ Be sure to `npm run build` and commit before each push to master. A few seconds 
 * [Mocha](https://mochajs.org/)
 * [Chai](https://chaijs.com/)
 
+## GitHub Pages Setup
+
+To view this project in production visit <https://jplao.github.io/Ageagle/>.
