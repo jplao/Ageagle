@@ -67,9 +67,9 @@
 	map.addControl(new mapboxgl.NavigationControl());
 
 	// Call to fetch weather info
-	function getWeather(q) {
+	function getWeather(data) {
 	  var api_key = '6996386e46f031703c26cea51cac9e6e';
-	  var url = 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=' + api_key + '&q=' + q;
+	  var url = 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=' + api_key + '&' + data;
 	  fetch(url).then(function (response) {
 	    return response.json();
 	  }).then(function (json_response) {
@@ -102,10 +102,14 @@
 
 	// Link searched location to displayed weather data
 	geocoder.on('result', function (ev) {
-	  getWeather(ev.result.place_name);
+	  getWeather('q=' + ev.result.place_name);
 	});
 
-	$(document).on("load", getWeather('Boulder,Colorado'));
+	map.on('click', function (e) {
+	  getWeather('lon=' + e.lngLat.lng + '&lat=' + e.lngLat.lat);
+	});
+
+	$(document).on("load", getWeather('q=Boulder,Colorado'));
 
 /***/ }),
 /* 1 */
