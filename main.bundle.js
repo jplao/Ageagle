@@ -69,7 +69,7 @@
 	// Call to fetch weather info
 	function getWeather(q) {
 	  var api_key = '6996386e46f031703c26cea51cac9e6e';
-	  var url = 'http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=' + api_key + '&q=' + q;
+	  var url = 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=' + api_key + '&q=' + q;
 	  fetch(url).then(function (response) {
 	    return response.json();
 	  }).then(function (json_response) {
